@@ -128,6 +128,7 @@ public class Server
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
                 { (int)ClientPackets.playerIsReady, ServerHandle.PlayerIsReady },
                 { (int)ClientPackets.startGame, ServerHandle.StartGame },
+                { (int)ClientPackets.RollDices, ServerHandle.RollADice },
             };
         Debug.Log("Initialized packets.");
     }

@@ -12,6 +12,7 @@ public enum ServerPackets
     loadScene,
     sendPlayerData,
     sendPlayersPrepared,
+    movingOfDice,
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -20,7 +21,7 @@ public enum ClientPackets
     welcomeReceived = 1,
     playerIsReady,
     startGame,
-
+    RollDices,
 }
 
 public enum NameOfScene

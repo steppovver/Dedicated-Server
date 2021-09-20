@@ -49,7 +49,8 @@ public class ClientHandle : MonoBehaviour
 
     public static void LoadScene(Packet _packet)
     {
-        SceneManager.LoadScene(_packet.ReadInt());
+        int _sceneIndex = _packet.ReadInt();
+        LevelLoader.instance.LoadScene(_sceneIndex);
     }
 
     internal static void RecievePlayersPrepared(Packet _packet)
@@ -59,5 +60,15 @@ public class ClientHandle : MonoBehaviour
 
         GameManager.players[_id].isReady = _isReady;
         LobbyManager.instance.UpdatePlayersPrepare(_id, _isReady);
+    }
+
+    internal static void MovingOfDice(Packet _packet)
+    {
+        int count = _packet.ReadInt();
+        int id = _packet.ReadInt();
+        Vector3 pos = _packet.ReadVector3();
+        Quaternion rot = _packet.ReadQuaternion();
+
+        print($"Количество фишек {count}, id {id}, position {pos}, rotation {rot}");
     }
 }

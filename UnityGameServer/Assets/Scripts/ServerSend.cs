@@ -39,7 +39,6 @@ public class ServerSend
         }
     }
 
-
     private static void SendUDPDataToAll(Packet _packet)
     {
         _packet.WriteLength();
@@ -60,6 +59,8 @@ public class ServerSend
             }
         }
     }
+
+
     #endregion
 
 
@@ -126,6 +127,19 @@ public class ServerSend
             _packet.Write(_isReady);
 
             SendTCPDataToAll(_packet);
+        }
+    }
+
+    internal static void SendDicePosition(int count, int index, Transform transform)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.movingOfDice))
+        {
+            _packet.Write(count);
+            _packet.Write(index);
+            _packet.Write(transform.position);
+            _packet.Write(transform.rotation);
+
+            SendUDPDataToAll(_packet);
         }
     }
     #endregion

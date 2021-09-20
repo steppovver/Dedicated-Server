@@ -7,10 +7,6 @@ public class Player : MonoBehaviour
     public int id;
     public string username;
     public bool IsReadyForStart;
-    
-    private void Start()
-    {
-    }
 
     public void Initialize(int _id, string _username)
     {

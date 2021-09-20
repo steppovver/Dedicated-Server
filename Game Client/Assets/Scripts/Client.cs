@@ -282,6 +282,7 @@ public class Client : MonoBehaviour
             {(int)ServerPackets.sendPlayerData, ClientHandle.SendPlayerData },
             {(int)ServerPackets.loadScene, ClientHandle.LoadScene },
             {(int)ServerPackets.sendPlayersPrepared, ClientHandle.RecievePlayersPrepared },
+            {(int)ServerPackets.movingOfDice, ClientHandle.MovingOfDice },
 
         };
 

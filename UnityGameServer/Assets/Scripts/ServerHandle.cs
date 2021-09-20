@@ -33,4 +33,9 @@ public class ServerHandle
     {
         ServerSend.LoadScene(NameOfScene.Game);
     }
+
+    internal static void RollADice(int _fromClient, Packet _packet)
+    {
+        DiceRoller.Instance.SetUpDicesAndRoll(2);
+    }
 }

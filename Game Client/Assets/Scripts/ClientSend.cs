@@ -17,6 +17,8 @@ public class ClientSend : MonoBehaviour
         Client.instance.udp.SendData(_packet);
     }
 
+
+
     public static void WelcomeReceived()
     {
         using (Packet _packet = new Packet((int)ClientPackets.welcomeReceived))
@@ -44,6 +46,14 @@ public class ClientSend : MonoBehaviour
         {
             _packet.Write(_start);
 
+            SendTCPData(_packet);
+        }
+    }
+
+    internal static void RollADice()
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.RollDices))
+        {
             SendTCPData(_packet);
         }
     }

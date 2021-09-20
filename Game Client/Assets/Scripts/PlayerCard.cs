@@ -29,8 +29,14 @@ public class PlayerCard : MonoBehaviour
 
     public void ResetCard()
     {
-        waitingForPlayer.SetActive(true);
-        playerCard.SetActive(false);
+        if (waitingForPlayer != null)
+        {
+            waitingForPlayer.SetActive(true);
+        }
+        if (playerCard !=null)
+        {
+            playerCard.SetActive(false);
+        }
     }
 
     public void UpdateToggle(bool _isReady)
