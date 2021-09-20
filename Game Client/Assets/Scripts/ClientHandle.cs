@@ -69,6 +69,7 @@ public class ClientHandle : MonoBehaviour
         Vector3 pos = _packet.ReadVector3();
         Quaternion rot = _packet.ReadQuaternion();
 
+        DiceRoller.Instance.MoveTheDice(count, id, pos, rot);
         print($"Количество фишек {count}, id {id}, position {pos}, rotation {rot}");
     }
 }
