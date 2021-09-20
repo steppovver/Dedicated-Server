@@ -10,7 +10,7 @@ public class Client : MonoBehaviour
     public static Client instance;
     public static int dataBufferSize = 4096;
 
-    public string ip = "127.0.0.1";
+    [HideInInspector] public string ip;
     public int port = 27089;
     public int myId = 0;
     public TCP tcp;
@@ -71,6 +71,7 @@ public class Client : MonoBehaviour
             };
 
             receiveBuffer = new byte[dataBufferSize];
+            print(instance.ip);
             socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
 
         }
