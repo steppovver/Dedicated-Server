@@ -6,3 +6,4 @@ public class Step : MonoBehaviour
 {
     public int myIndex;
 }
+

@@ -72,4 +72,9 @@ public class ClientHandle : MonoBehaviour
         DiceRoller.Instance.MoveTheDice(count, id, pos, rot);
         print($"Количество фишек {count}, id {id}, position {pos}, rotation {rot}");
     }
+
+    internal static void InstantiatePlayers(Packet _packet)
+    {
+        PlayerHandler.Instance.instantiatePlayers();
+    }
 }

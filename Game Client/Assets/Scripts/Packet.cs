@@ -13,6 +13,7 @@ public enum ServerPackets
     sendPlayerData,
     sendPlayersPrepared,
     movingOfDice,
+    instantiatePlayer,
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -20,8 +21,9 @@ public enum ClientPackets
 {
     welcomeReceived = 1,
     playerIsReady,
+    gameIsReady,
     startGame,
-    RollDices,
+    rollDice,
 }
 
 

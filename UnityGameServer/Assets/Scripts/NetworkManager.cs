@@ -40,4 +40,23 @@ public class NetworkManager : MonoBehaviour
     {
         return Instantiate(playerPrefab, Vector3.zero, Quaternion.identity).GetComponent<Player>();
     }
+
+    public void GameIsReady(int _fromClient)
+    {
+        Server.clients[_fromClient].player.IsGameReady = true;
+
+        for (int i = 0; i < Server.clientOrder.Count; i++)
+        {
+            Debug.Log($"{Server.clientOrder[i]}{Server.clients[Server.clientOrder[i]].player.IsGameReady}");
+            if (Server.clients[Server.clientOrder[i]].player.IsGameReady == false)
+            {
+                print("sosi");
+                return;
+            }
+        }
+
+        print("вызываю инстантиэйт");
+
+        ServerSend.InstantiatePlayers();
+    }
 }

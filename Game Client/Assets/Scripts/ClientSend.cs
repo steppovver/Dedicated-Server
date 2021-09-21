@@ -30,6 +30,14 @@ public class ClientSend : MonoBehaviour
         }
     }
 
+    internal static void GameIsReady()
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.gameIsReady))
+        {
+            SendTCPData(_packet);
+        }
+    }
+
     public static void PlayerIsReady()
     {
         using (Packet _packet = new Packet((int)ClientPackets.playerIsReady))
@@ -42,6 +50,7 @@ public class ClientSend : MonoBehaviour
 
     internal static void StartGame(bool _start)
     {
+        print(12312312312312);
         using (Packet _packet = new Packet((int)ClientPackets.startGame))
         {
             _packet.Write(_start);
@@ -52,7 +61,7 @@ public class ClientSend : MonoBehaviour
 
     internal static void RollADice()
     {
-        using (Packet _packet = new Packet((int)ClientPackets.RollDices))
+        using (Packet _packet = new Packet((int)ClientPackets.rollDice))
         {
             SendTCPData(_packet);
         }

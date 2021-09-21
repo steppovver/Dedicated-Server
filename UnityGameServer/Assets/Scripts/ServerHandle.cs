@@ -25,6 +25,7 @@ public class ServerHandle
         bool _isReady = _packet.ReadBool();
 
         Server.clients[_fromClient].player.IsReadyForStart = !Server.clients[_fromClient].player.IsReadyForStart;
+        Server.clients[_fromClient].player.IsGameReady = false;
 
         ServerSend.SendPlayersPrepared(_fromClient, Server.clients[_fromClient].player.IsReadyForStart);
     }
@@ -37,5 +38,10 @@ public class ServerHandle
     internal static void RollADice(int _fromClient, Packet _packet)
     {
         DiceRoller.Instance.SetUpDicesAndRoll(2);
+    }
+
+    internal static void GameIsReady(int _fromClient, Packet _packet)
+    {
+        NetworkManager.instance.GameIsReady(_fromClient);
     }
 }
